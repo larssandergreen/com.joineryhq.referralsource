@@ -5,6 +5,36 @@ require_once 'irestweaks.civix.php';
 use CRM_Irestweaks_ExtensionUtil as E;
 // phpcs:enable
 
+
+/**
+ * Implements hook_civicrm_buildForm().
+ *
+ * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_buildForm
+ */
+function irestweaks_civicrm_buildForm($formName, &$form) {
+  // Detect contribution page and contribution confirm page
+  if (
+      $formName === 'CRM_Contribute_Form_Contribution_Main'
+      || $formName === 'CRM_Contribute_Form_Contribution_Confirm'
+    ) {
+    // Get the campaign id by the entryURL in the controler array
+    $controller = $form->getVar('controller');
+    // Process to get the campaign id in the parameter
+    $params = explode('?', $controller->_entryURL);
+    parse_str(end($params), $parseURL);
+    $paramItems = [];
+
+    // Remove amp; since it was not remove using parse_str
+    foreach($parseURL as $key => $value) {
+      $newKey = str_replace('amp;', '', $key);
+
+      if ($newKey === 'source') {
+        $form->_values['title'] = $value;
+      }
+    }
+  }
+}
+
 /**
  * Implements hook_civicrm_config().
  *
