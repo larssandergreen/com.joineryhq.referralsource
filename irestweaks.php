@@ -17,15 +17,14 @@ function irestweaks_civicrm_buildForm($formName, &$form) {
       $formName === 'CRM_Contribute_Form_Contribution_Main'
       || $formName === 'CRM_Contribute_Form_Contribution_Confirm'
     ) {
-    // Get the campaign id by the entryURL in the controler array
+    // Get the source param by the entryURL in the controler array
     $controller = $form->getVar('controller');
-    // Process to get the campaign id in the parameter
+    // Process to get the source param
     $params = explode('?', $controller->_entryURL);
     parse_str(end($params), $parseURL);
-    $paramItems = [];
 
     // Remove amp; since it was not remove using parse_str
-    foreach($parseURL as $key => $value) {
+    foreach ($parseURL as $key => $value) {
       $newKey = str_replace('amp;', '', $key);
 
       if ($newKey === 'source') {
