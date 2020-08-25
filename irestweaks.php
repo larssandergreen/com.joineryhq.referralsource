@@ -28,7 +28,8 @@ function irestweaks_civicrm_buildForm($formName, &$form) {
       $newKey = str_replace('amp;', '', $key);
 
       if ($newKey === 'source') {
-        $form->_values['title'] = $value;
+        $form->_values['title'] = $form->_values['title'] . ' - ' . $value;
+        break;
       }
     }
   }
