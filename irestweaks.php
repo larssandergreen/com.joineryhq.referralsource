@@ -27,8 +27,7 @@ function irestweaks_civicrm_postProcess($formName, &$form) {
         // Get the newly created contribution
         $lastContribution = civicrm_api3('Contribution', 'get', [
           'sequential' => 1,
-          'receive_date' => ['IS NOT NULL' => 1],
-          'options' => ['sort' => 'receive_date DESC', 'limit' => 1],
+          'id' => $form->_contributionID,
           'return' => ['id', 'contribution_source'],
         ]);
 
@@ -37,7 +36,7 @@ function irestweaks_civicrm_postProcess($formName, &$form) {
 
         // Update the source
         $result = civicrm_api3('Contribution', 'create', [
-          'id' => $lastContribution['id'],
+          'id' => $form->_contributionID,
           'source' => $newSource,
         ]);
 
