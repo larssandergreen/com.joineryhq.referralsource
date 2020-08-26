@@ -19,24 +19,28 @@ function irestweaks_civicrm_postProcess($formName, &$form) {
     $params = explode('?', $controller->_entryURL);
     parse_str(end($params), $parseURL);
 
-    $getSource = '';
-
-    // Remove amp; since it was not remove using parse_str
     foreach ($parseURL as $key => $value) {
+    // Remove amp; since it was not remove using parse_str
       $newKey = str_replace('amp;', '', $key);
 
       if ($newKey === 'source') {
-        $getSource = 'Online Contribution: ' . $form->_values['title'] . ' - ' . $value;
+        // Get the newly created contribution
+        $lastContribution = civicrm_api3('Contribution', 'get', [
+          'sequential' => 1,
+          'receive_date' => ['IS NOT NULL' => 1],
+          'options' => ['sort' => 'receive_date DESC', 'limit' => 1],
+          'return' => ['id', 'contribution_source'],
+        ]);
 
-        $query = "
-          UPDATE civicrm_contribution
-          SET source = %1
-          order by receive_date desc
-          limit 1
-        ";
+        // Add the source param value to the current source
+        $newSource = $lastContribution['values'][0]['contribution_source'] . ' - ' . $value;
 
-        $params = array(1 => array($getSource, 'String'));
-        CRM_Core_DAO::executeQuery($query, $params);
+        // Update the source
+        $result = civicrm_api3('Contribution', 'create', [
+          'id' => $lastContribution['id'],
+          'source' => $newSource,
+        ]);
+
         break;
       }
     }
