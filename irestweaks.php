@@ -20,7 +20,7 @@ function irestweaks_civicrm_postProcess($formName, &$form) {
     parse_str(end($params), $parseURL);
 
     foreach ($parseURL as $key => $value) {
-    // Remove amp; since it was not remove using parse_str
+      // Remove amp; since it was not remove using parse_str
       $newKey = str_replace('amp;', '', $key);
 
       if ($newKey === 'source') {
