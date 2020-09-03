@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
-<extension key="com.joineryhq.irestweaks" type="module">
-  <file>irestweaks</file>
-  <name>IRES Tweaks</name>
-  <description>Custom behaviors for IRES</description>
+<extension key="com.joineryhq.referralsource" type="module">
+  <file>referralsource</file>
+  <name>Referral Source</name>
+  <description>Custom behaviors for Contributions</description>
   <license>GPL-3.0</license>
   <maintainer>
     <author>Allen Shaw</author>
     <email>allen@JoineryHQ.com</email>
   </maintainer>
   <urls>
-    <url desc="Main Extension Page">https://github.com/twomice/com.joineryhq.irestweaks/</url>
-    <url desc="Documentation">https://github.com/twomice/com.joineryhq.irestweaks/</url>
-    <url desc="Support">https://github.com/twomice/com.joineryhq.irestweaks/issues</url>
+    <url desc="Main Extension Page">https://github.com/twomice/com.joineryhq.referralsource/</url>
+    <url desc="Documentation">https://github.com/twomice/com.joineryhq.referralsource/</url>
+    <url desc="Support">https://github.com/twomice/com.joineryhq.referralsource/issues</url>
     <url desc="Licensing">http://www.gnu.org/licenses/gpl-3.0.html</url>
   </urls>
   <releaseDate>2020-08-27</releaseDate>
@@ -25,6 +25,6 @@
     <psr4 prefix="Civi\" path="Civi"/>
   </classloader>
   <civix>
-    <namespace>CRM/Irestweaks</namespace>
+    <namespace>CRM/Referralsource</namespace>
   </civix>
 </extension>
