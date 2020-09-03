@@ -2,7 +2,7 @@
 <extension key="com.joineryhq.referralsource" type="module">
   <file>referralsource</file>
   <name>Referral Source</name>
-  <description>Custom behaviors for IRES</description>
+  <description>Custom behaviors for Contributions</description>
   <license>GPL-3.0</license>
   <maintainer>
     <author>Allen Shaw</author>

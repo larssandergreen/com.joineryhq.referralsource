@@ -1,6 +1,6 @@
 # CiviCRM: Referral Source
 
-CiviCRM extension providing custom behaviors for IRES:
+CiviCRM extension providing custom behaviors for Contributions:
 
 *  Allows modifying the contribution Source field based on the 'source' query string parameter, if such is provided in the URL for a contribution page.
 
