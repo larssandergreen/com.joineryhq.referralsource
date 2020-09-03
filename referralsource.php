@@ -1,8 +1,8 @@
 <?php
 
-require_once 'irestweaks.civix.php';
+require_once 'referralsource.civix.php';
 // phpcs:disable
-use CRM_Irestweaks_ExtensionUtil as E;
+use CRM_Referralsource_ExtensionUtil as E;
 // phpcs:enable
 
 /**
@@ -10,7 +10,7 @@ use CRM_Irestweaks_ExtensionUtil as E;
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_postProcess
  */
-function irestweaks_civicrm_postProcess($formName, &$form) {
+function referralsource_civicrm_postProcess($formName, &$form) {
   // Detect contribution page and contribution confirm page
   if ($formName === 'CRM_Contribute_Form_Contribution_Confirm') {
     // Get the source param by the entryURL in the controler array
@@ -51,8 +51,8 @@ function irestweaks_civicrm_postProcess($formName, &$form) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config/
  */
-function irestweaks_civicrm_config(&$config) {
-  _irestweaks_civix_civicrm_config($config);
+function referralsource_civicrm_config(&$config) {
+  _referralsource_civix_civicrm_config($config);
 }
 
 /**
@@ -60,8 +60,8 @@ function irestweaks_civicrm_config(&$config) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_xmlMenu
  */
-function irestweaks_civicrm_xmlMenu(&$files) {
-  _irestweaks_civix_civicrm_xmlMenu($files);
+function referralsource_civicrm_xmlMenu(&$files) {
+  _referralsource_civix_civicrm_xmlMenu($files);
 }
 
 /**
@@ -69,8 +69,8 @@ function irestweaks_civicrm_xmlMenu(&$files) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_install
  */
-function irestweaks_civicrm_install() {
-  _irestweaks_civix_civicrm_install();
+function referralsource_civicrm_install() {
+  _referralsource_civix_civicrm_install();
 }
 
 /**
@@ -78,8 +78,8 @@ function irestweaks_civicrm_install() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_postInstall
  */
-function irestweaks_civicrm_postInstall() {
-  _irestweaks_civix_civicrm_postInstall();
+function referralsource_civicrm_postInstall() {
+  _referralsource_civix_civicrm_postInstall();
 }
 
 /**
@@ -87,8 +87,8 @@ function irestweaks_civicrm_postInstall() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_uninstall
  */
-function irestweaks_civicrm_uninstall() {
-  _irestweaks_civix_civicrm_uninstall();
+function referralsource_civicrm_uninstall() {
+  _referralsource_civix_civicrm_uninstall();
 }
 
 /**
@@ -96,8 +96,8 @@ function irestweaks_civicrm_uninstall() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_enable
  */
-function irestweaks_civicrm_enable() {
-  _irestweaks_civix_civicrm_enable();
+function referralsource_civicrm_enable() {
+  _referralsource_civix_civicrm_enable();
 }
 
 /**
@@ -105,8 +105,8 @@ function irestweaks_civicrm_enable() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_disable
  */
-function irestweaks_civicrm_disable() {
-  _irestweaks_civix_civicrm_disable();
+function referralsource_civicrm_disable() {
+  _referralsource_civix_civicrm_disable();
 }
 
 /**
@@ -114,8 +114,8 @@ function irestweaks_civicrm_disable() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_upgrade
  */
-function irestweaks_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
-  return _irestweaks_civix_civicrm_upgrade($op, $queue);
+function referralsource_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
+  return _referralsource_civix_civicrm_upgrade($op, $queue);
 }
 
 /**
@@ -126,8 +126,8 @@ function irestweaks_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_managed
  */
-function irestweaks_civicrm_managed(&$entities) {
-  _irestweaks_civix_civicrm_managed($entities);
+function referralsource_civicrm_managed(&$entities) {
+  _referralsource_civix_civicrm_managed($entities);
 }
 
 /**
@@ -139,8 +139,8 @@ function irestweaks_civicrm_managed(&$entities) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_caseTypes
  */
-function irestweaks_civicrm_caseTypes(&$caseTypes) {
-  _irestweaks_civix_civicrm_caseTypes($caseTypes);
+function referralsource_civicrm_caseTypes(&$caseTypes) {
+  _referralsource_civix_civicrm_caseTypes($caseTypes);
 }
 
 /**
@@ -153,8 +153,8 @@ function irestweaks_civicrm_caseTypes(&$caseTypes) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_angularModules
  */
-function irestweaks_civicrm_angularModules(&$angularModules) {
-  _irestweaks_civix_civicrm_angularModules($angularModules);
+function referralsource_civicrm_angularModules(&$angularModules) {
+  _referralsource_civix_civicrm_angularModules($angularModules);
 }
 
 /**
@@ -162,8 +162,8 @@ function irestweaks_civicrm_angularModules(&$angularModules) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_alterSettingsFolders
  */
-function irestweaks_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
-  _irestweaks_civix_civicrm_alterSettingsFolders($metaDataFolders);
+function referralsource_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
+  _referralsource_civix_civicrm_alterSettingsFolders($metaDataFolders);
 }
 
 /**
@@ -173,15 +173,15 @@ function irestweaks_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_entityTypes
  */
-function irestweaks_civicrm_entityTypes(&$entityTypes) {
-  _irestweaks_civix_civicrm_entityTypes($entityTypes);
+function referralsource_civicrm_entityTypes(&$entityTypes) {
+  _referralsource_civix_civicrm_entityTypes($entityTypes);
 }
 
 /**
  * Implements hook_civicrm_thems().
  */
-function irestweaks_civicrm_themes(&$themes) {
-  _irestweaks_civix_civicrm_themes($themes);
+function referralsource_civicrm_themes(&$themes) {
+  _referralsource_civix_civicrm_themes($themes);
 }
 
 // --- Functions below this ship commented out. Uncomment as required. ---
@@ -191,7 +191,7 @@ function irestweaks_civicrm_themes(&$themes) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_preProcess
  */
-//function irestweaks_civicrm_preProcess($formName, &$form) {
+//function referralsource_civicrm_preProcess($formName, &$form) {
 //
 //}
 
@@ -200,8 +200,8 @@ function irestweaks_civicrm_themes(&$themes) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_navigationMenu
  */
-//function irestweaks_civicrm_navigationMenu(&$menu) {
-//  _irestweaks_civix_insert_navigation_menu($menu, 'Mailings', array(
+//function referralsource_civicrm_navigationMenu(&$menu) {
+//  _referralsource_civix_insert_navigation_menu($menu, 'Mailings', array(
 //    'label' => E::ts('New subliminal message'),
 //    'name' => 'mailing_subliminal_message',
 //    'url' => 'civicrm/mailing/subliminal',
@@ -209,5 +209,5 @@ function irestweaks_civicrm_themes(&$themes) {
 //    'operator' => 'OR',
 //    'separator' => 0,
 //  ));
-//  _irestweaks_civix_navigationMenu($menu);
+//  _referralsource_civix_navigationMenu($menu);
 //}
