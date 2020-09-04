@@ -15,6 +15,9 @@ The extension is licensed under [GPL-3.0](LICENSE.txt).
 
 For any contribution page, append `&source=X` to the URL. This will cause 'X' to be appended to the resulting contribution Source field value.
 
+## Credits
+Developed by [Joinery](https://joineryhq.com). Concept and initial sponsorship by [Korlon](https://korlon.com).
+
 ## Support
 ![screenshot](/images/joinery-logo.png)
 
