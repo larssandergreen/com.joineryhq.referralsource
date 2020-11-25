@@ -32,7 +32,14 @@ function referralsource_civicrm_postProcess($formName, &$form) {
         ]);
 
         // Add the source param value to the current source
-        $newSource = $lastContribution['values'][0]['contribution_source'] . ' - ' . $value;
+        $newSource = $lastContribution['values'][0]['contribution_source'];
+        // Add the source param value to the current source, if we haven't already
+        // done so for this form (when running with a payment processor, this hook
+        // is fired twice, so we have to keep track of this ourselves.)
+        if(!isset($form->_params['_com.joineryhq.referralsource_processed'])) {
+          $newSource = $lastContribution['values'][0]['contribution_source'] . ' - ' . $value;
+          $form->_params['_com.joineryhq.referralsource_processed'] = TRUE;
+        }
 
         // Update the source
         $result = civicrm_api3('Contribution', 'create', [
