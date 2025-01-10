@@ -18,7 +18,7 @@
   <version>1.1</version>
   <develStage>stable</develStage>
   <compatibility>
-    <ver>5.0</ver>
+    <ver>5.45</ver>
   </compatibility>
   <comments>Allows modifying the contribution Source field based on the 'source' query string parameter, if such is provided in the URL for a contribution page. Concept and initial sponored by Korlon.</comments>
   <classloader>
@@ -26,5 +26,9 @@
   </classloader>
   <civix>
     <namespace>CRM/Referralsource</namespace>
+    <format>24.09.1</format>
   </civix>
+  <mixins>
+    <mixin>entity-types-php@2.0.0</mixin>
+  </mixins>
 </extension>
