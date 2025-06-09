@@ -36,7 +36,7 @@ function referralsource_civicrm_postProcess($formName, &$form) {
         // Add the source param value to the current source, if we haven't already
         // done so for this form (when running with a payment processor, this hook
         // is fired twice, so we have to keep track of this ourselves.)
-        if(!isset($form->_params['_com.joineryhq.referralsource_processed'])) {
+        if (!isset($form->_params['_com.joineryhq.referralsource_processed'])) {
           $newSource = $lastContribution['values'][0]['contribution_source'] . ' - ' . $value;
           $form->_params['_com.joineryhq.referralsource_processed'] = TRUE;
         }
@@ -46,6 +46,34 @@ function referralsource_civicrm_postProcess($formName, &$form) {
           'id' => $form->_contributionID,
           'source' => $newSource,
         ]);
+
+        break;
+      }
+    }
+  }
+
+  if ($formName === 'CRM_Event_Form_Registration_Confirm') {
+    $controller = $form->getVar('controller');
+    $params = explode('?', $controller->_entryURL);
+    parse_str(end($params), $parseURL);
+
+    foreach ($parseURL as $key => $value) {
+      $newKey = str_replace('amp;', '', $key);
+
+      if ($newKey === 'source') {
+        $participantIds = $form->get('participantIDs');
+        $primaryParticipant = \Civi\Api4\Participant::get(FALSE)
+          ->addSelect('source')
+          ->addWhere('id', '=', $participantIds[0])
+          ->execute()->first();
+
+        if (!isset($form->_referralsource_processed)) {
+          \Civi\Api4\Participant::update(FALSE)
+            ->addValue('source', $primaryParticipant['source'] . ' - ' . $value)
+            ->addWhere('id', 'IN', $participantIds)
+            ->execute();
+          $form->_referralsource_processed = TRUE;
+        }
 
         break;
       }
